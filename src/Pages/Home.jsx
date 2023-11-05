@@ -1,9 +1,18 @@
+import Banner from "../components/Banner/Banner";
+import { Toaster } from "react-hot-toast";
+import Categories from "../components/Categories/Categories";
+
 const Home = () => {
+
+
     return (
         <div>
+            <Banner></Banner>
+            <Categories></Categories>
 
-            <h2>Hey this is home</h2>
-            
+
+            <Toaster></Toaster>
+
         </div>
     );
 };
