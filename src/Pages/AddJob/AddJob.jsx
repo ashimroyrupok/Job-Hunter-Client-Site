@@ -4,12 +4,12 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const AddJob = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     const handleForm = e => {
         e.preventDefault();
         const form = e.target
-        const email = form.email.value
+        const BuyerEmail = form.email.value
         const jobTitle = form.jobTitle.value
 
         const select = document.getElementById("categorySelect");
@@ -19,31 +19,28 @@ const AddJob = () => {
 
         const deadline = form.deadline.value;
         const minimumPice = form.minimumPice.value
-       
+
         const maximumPrice = form.maximumPrice.value;
         const description = form.description.value;
-        const products = { email, jobTitle, selectedCategory, minimumPice, deadline, maximumPrice, description }
-        console.log(products);
+        const products = { BuyerEmail, jobTitle, selectedCategory, minimumPice, deadline, maximumPrice, description }
+        // console.log(products);
 
-
-
-        // fetch('https://technology-and-electronics-server-blond.vercel.app/products', {
-        //     method: "POST",
-        //     headers: {
-        //         "content-type": "application/json"
-        //     },
-        //     body: JSON.stringify(products)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data) {
-
-        //             swal("Good job!", "Product added Successful!", "success")
-
-        //             form.reset()
-
-        //         }
-        //     })
+        fetch("http://localhost:5000/jobs", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(products)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    swal("Good job!", "Product added Successful!", "success")
+                    form.reset()
+                
+                }
+            })
 
 
 
@@ -54,7 +51,7 @@ const AddJob = () => {
 
     return (
         <div className="max-w-[1240px] mx-auto mt-10 bg-[#327289]  my-7 ">
-            <h3 className="text-5xl text-center items-center font-bold text-white">Add Job</h3>
+            <h3 className="text-5xl text-center items-center font-bold text-white">Post Job</h3>
             <div className="border-rose-100  border mt-6 p-4">
                 <form onSubmit={handleForm} >
                     <div className="flex justify-around items-center ">

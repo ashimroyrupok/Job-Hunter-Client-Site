@@ -1,33 +1,125 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 
 const Categories = () => {
+    const [allJob, setAllJob] = useState([])
+    const [webJob, setWebJob] = useState([])
+    const [marketingJOb, setMarketingJOb] = useState([])
+    const [graphicsJob, setGraphicsJob] = useState([])
+
+
+    useEffect(() => {
+        fetch('http://localhost:5000/jobs')
+            .then(res => res.json())
+            .then(data => setAllJob(data))
+    }, [])
+
+    const tabs = (tab) => {
+        // setTab(index);
+        if (tab == 1) {
+            const filterWb = allJob.filter(job => job.selectedCategory == "Web Development")
+            setWebJob(filterWb);
+        }
+        if (tab == 2) {
+            const filter = allJob.filter(job => job.selectedCategory == "Digital Marketing")
+            setMarketingJOb(filter)
+        }
+        if (tab == 3) {
+            const filterGraphics = allJob.filter(job => job.selectedCategory == "Graphics Design")
+            setGraphicsJob(filterGraphics)
+        }
+
+    }
+
+
+
+
     return (
         <Tabs>
             <TabList>
-                <Tab>Web Development</Tab>
-                <Tab>Digital Marketing</Tab>
-                <Tab>Graphics Design</Tab>
+                <Tab onClick={() => tabs(1)}>Web Development</Tab>
+                <Tab onClick={() => tabs(2)}>Digital Marketing</Tab>
+                <Tab onClick={() => tabs(3)}>Graphics Design</Tab>
             </TabList>
 
-            <TabPanel>
-                <p>
-                    <b>Mario</b> (<i>Japanese: マリオ Hepburn: Mario, [ma.ɾʲi.o]</i>) (<i>English:
-                        /ˈmɑːrioʊ/; Italian: [ˈmaːrjo]</i>) is a fictional character in the Mario video
-                    game franchise, owned by Nintendo and created by Japanese video game designer
-                    Shigeru Miyamoto. Serving as the company's mascot and the eponymous protagonist
-                    of the series, Mario has appeared in over 200 video games since his creation.
-                    Depicted as a short, pudgy, Italian plumber who resides in the Mushroom
-                    Kingdom, his adventures generally center upon rescuing Princess Peach from the
-                    Koopa villain Bowser. His younger brother and sidekick is Luigi.
-                </p>
-                <p>
-                    Source:{' '}
-                    <a href="https://en.wikipedia.org/wiki/Mario" rel="noreferrer" target="_blank">
-                        Wikipedia
-                    </a>
-                </p>
+            <TabPanel >
+                <div className='grid grid-cols-3 gap-3 gap-y-3'>
+                    {
+                        webJob.length == 0 ? allJob.filter(job => job.selectedCategory == "Web Development").map(job => <div key={job._id} className="card w-96 bg-base-100 shadow-xl">
+                            <div className="card-body">
+                                <h2 className="card-title text-xl font-bold"> {job?.jobTitle} <span className="badge flex text-white  bg-[#327289] ">Full time</span>
+                                </h2>
+                                <p > <span className="text-red-500 font-semibold">Price</span> : {job?.minimumPice}$ - {job?.maximumPrice}$ </p>
+                                <p>Deadline: {job?.deadline} </p>
+                                <p> {job?.description.slice(0, 200)} </p>
+                                <div className="card-actions justify-end">
+                                    <Link to={`jobs/${job._id}`}>
+                                        <button className="btn bg-[#327289] text-white font-semibold">Bid Now</button> 
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>) : webJob.map(job => <div key={job._id} className="card w-96 bg-base-100 shadow-xl">
+
+                            <div className="card-body">
+                                <h2 className="card-title text-xl font-bold"> {job?.jobTitle} <span className="badge flex text-white  bg-[#327289] ">Full time</span>
+                                </h2>
+                                <p> <span className="text-red-500 font-semibold">Price</span>: {job?.minimumPice}$ - {job?.maximumPrice} </p>
+                                <p>Deadline: {job?.deadline} </p>
+                                <p> {job?.description.slice(0, 200)} </p>
+                                <div className="card-actions justify-end">
+                                <Link to={`jobs/${job._id}`}>
+                                        <button className="btn bg-[#327289] text-white font-semibold">Bid Now</button> 
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>)
+                    }
+                </div>
             </TabPanel>
+            <TabPanel >
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 gap-y-3'>
+                    {
+                        marketingJOb.map(job => <div key={job._id} className="card w-96 bg-base-100 shadow-xl">
+                            <div className="card-body">
+                                <h2 className="card-title text-xl font-bold"> {job?.jobTitle} <span className="badge flex text-white  bg-[#327289] ">Full time</span>
+                                </h2>
+                                <p> <span className="text-red-500 font-semibold">Price</span>: {job?.minimumPice}$ - {job?.maximumPrice} </p>
+                                <p>Deadline: {job?.deadline} </p>
+                                <p> {job?.description.slice(0, 200)} </p>
+                                <div className="card-actions justify-end">
+                                <Link to={`jobs/${job._id}`}>
+                                        <button className="btn bg-[#327289] text-white font-semibold">Bid Now</button> 
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>)
+                    }
+                </div>
+            </TabPanel>
+            <TabPanel >
+                <div className='grid grid-cols-3 gap-3 gap-y-3'>
+                    {
+                        graphicsJob.map(job => <div key={job._id} className="card w-96 bg-base-100 shadow-xl">
+                            <div className="card-body">
+                                <h2 className="card-title text-xl font-bold"> {job?.jobTitle} <span className="badge flex text-white  bg-[#327289] ">Full time</span>
+                                </h2>
+                                <p> <span className="text-red-500 font-semibold">Price</span>: {job?.minimumPice}$ - {job?.maximumPrice} </p>
+                                <p>Deadline: {job?.deadline} </p>
+                                <p> {job?.description.slice(0, 200)} </p>
+                                <div className="card-actions justify-end">
+                                <Link to={`jobs/${job._id}`}>
+                                        <button className="btn bg-[#327289] text-white font-semibold">Bid Now</button> 
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>)
+                    }
+                </div>
+            </TabPanel>
+
+
         </Tabs>
     )
 }

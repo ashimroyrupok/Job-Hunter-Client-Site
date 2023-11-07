@@ -4,17 +4,20 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
     const { logout, user } = useContext(AuthContext)
-    console.log(user);
+    // console.log(user);
 
-    const handleLogout =() => {
+    const handleLogout = () => {
         logout()
-        .then(res=> {
-            console.log(res);
-        })
-        .catch(err => {
-            console.log(err);
-        })
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
+
+
+
 
     return (
         <div className="navbar bg-base-200 lg:px-16 mt-3 rounded-full shadow-blue-400">
@@ -29,11 +32,12 @@ const Navbar = () => {
                             <a>Job</a>
                             <ul className="p-2">
                                 <li className="my-1"><NavLink>Add Job</NavLink></li>
-                                <li><NavLink>My Posted Jobs</NavLink></li>
+                                <li><NavLink to='/postjob'>My Posted Jobs</NavLink></li>
                             </ul>
                         </li>
                         <li className="my-1"><NavLink>My Bids</NavLink></li>
-                        <li><NavLink>Bids Request</NavLink></li>
+                        <li className="my-1"><NavLink>Bids Request</NavLink></li>
+                        {/* <li><NavLink to='/postjob'>Post Job</NavLink></li> */}
                     </ul>
                 </div>
                 {/* <img className="w-[70px] h-[60px] rounded-md" src="https://i.ibb.co/4FyYk7P/initial-jb-logo-design-circle-style-game-esport-community-business-222216772.jpg" alt="" /> */}
@@ -47,13 +51,14 @@ const Navbar = () => {
                         <details>
                             <summary>Job</summary>
                             <ul className="px-2 z-50 w-[150px]">
-                                <li className="my-1 text-sm w-full"><NavLink>Add Job</NavLink></li>
+                                <li className="my-1 text-sm w-full"><NavLink to='/postjob'>Add Job</NavLink></li>
                                 <li><NavLink>My Posted Jobs</NavLink></li>
                             </ul>
                         </details>
                     </li>
                     <li className="mx-2"><NavLink>My Bids</NavLink></li>
-                    <li><NavLink>Bids Request</NavLink></li>
+                    <li className="mx-2"><NavLink>Bids Request</NavLink></li>
+                    {/* <li><NavLink to='/postjob'>Post Job</NavLink></li> */}
                 </ul>
             </div>
             <div className="navbar-end">
