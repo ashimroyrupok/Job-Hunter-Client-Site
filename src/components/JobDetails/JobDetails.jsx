@@ -82,7 +82,7 @@ const JobDetails = () => {
 
             </div>
 
-            <div id="BidForm" className="max-w-[1240px] hidden mx-auto mt-10 bg-[#327289]  my-7 ">
+            <div  className="max-w-[1240px] hidden mx-auto mt-10 bg-[#327289]  my-7 ">
                 <h3 className="text-5xl text-center items-center font-bold text-white">Biding information</h3>
                 <div className="border-rose-100  border mt-6 p-4">
                     <form onSubmit={handleBid} >
