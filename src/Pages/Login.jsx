@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import animation from "../assets/Animation - 1696665460395.gif"
 
 const Login = () => {
     const navigate = useNavigate()
@@ -53,7 +54,8 @@ const Login = () => {
                 <div className="hero-content flex-col lg:flex-row">
                     <div className=" h-full  flex-1">
 
-                        <img className="h-[700px]" src="https://i.ibb.co/vHw7yzr/access-control-system-abstract-concept-335657-3180-removebg-preview.png" alt="" />
+                        {/* <img className="h-[700px]" src="https://i.ibb.co/vHw7yzr/access-control-system-abstract-concept-335657-3180-removebg-preview.png" alt="" /> */}
+                        <img className="h-[700px]" src="https://i.ibb.co/BnZrLF7/Animation-1696665460395.gif" alt="" />
 
                     </div>
                     <div className="card flex-1 flex-shrink-0 w-full h-[75%] max-w-sm shadow-2xl bg-base-100">

@@ -32,15 +32,14 @@ const Navbar = () => {
                             <a>Job</a>
                             <ul className="p-2">
                                 <li className="my-1"><NavLink>Add Job</NavLink></li>
-                                <li><NavLink to='/postjob'>My Posted Jobs</NavLink></li>
+                                <li><NavLink to="/myPostedJob">My Posted Jobs</NavLink></li>
                             </ul>
                         </li>
-                        <li className="my-1"><NavLink>My Bids</NavLink></li>
-                        <li className="my-1"><NavLink>Bids Request</NavLink></li>
+                        <li className="my-1"><NavLink to='/myBids'>My Bids</NavLink></li>
+                        <li className="my-1"><NavLink >Bids Request</NavLink></li>
                         {/* <li><NavLink to='/postjob'>Post Job</NavLink></li> */}
                     </ul>
                 </div>
-                {/* <img className="w-[70px] h-[60px] rounded-md" src="https://i.ibb.co/4FyYk7P/initial-jb-logo-design-circle-style-game-esport-community-business-222216772.jpg" alt="" /> */}
                 <h2 className="text-3xl font-bold">ᒍᗷ</h2>
                 <Link className="btn btn-ghost normal-case  font-bold text-xl">Job <span className="font-bold text-[#02D0D8]">Hunter</span> </Link>
             </div>
@@ -52,11 +51,11 @@ const Navbar = () => {
                             <summary>Job</summary>
                             <ul className="px-2 z-50 w-[150px]">
                                 <li className="my-1 text-sm w-full"><NavLink to='/postjob'>Add Job</NavLink></li>
-                                <li><NavLink>My Posted Jobs</NavLink></li>
+                                <li><NavLink to="/myPostedJob">My Posted Jobs</NavLink></li>
                             </ul>
                         </details>
                     </li>
-                    <li className="mx-2"><NavLink>My Bids</NavLink></li>
+                    <li className="mx-2"><NavLink to='/myBids'>My Bids</NavLink></li>
                     <li className="mx-2"><NavLink>Bids Request</NavLink></li>
                     {/* <li><NavLink to='/postjob'>Post Job</NavLink></li> */}
                 </ul>

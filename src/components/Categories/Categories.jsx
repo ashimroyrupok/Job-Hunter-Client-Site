@@ -45,7 +45,7 @@ const Categories = () => {
             </TabList>
 
             <TabPanel >
-                <div className='grid grid-cols-3 gap-3 gap-y-3'>
+                <div className='grid ml-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 gap-y-3'>
                     {
                         webJob.length == 0 ? allJob.filter(job => job.selectedCategory == "Web Development").map(job => <div key={job._id} className="card w-96 bg-base-100 shadow-xl">
                             <div className="card-body">
@@ -79,7 +79,7 @@ const Categories = () => {
                 </div>
             </TabPanel>
             <TabPanel >
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 gap-y-3'>
+                <div className='grid ml-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 gap-y-3'>
                     {
                         marketingJOb.map(job => <div key={job._id} className="card w-96 bg-base-100 shadow-xl">
                             <div className="card-body">
@@ -99,7 +99,7 @@ const Categories = () => {
                 </div>
             </TabPanel>
             <TabPanel >
-                <div className='grid grid-cols-3 gap-3 gap-y-3'>
+                <div className='grid ml-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-3 gap-y-3'>
                     {
                         graphicsJob.map(job => <div key={job._id} className="card w-96 bg-base-100 shadow-xl">
                             <div className="card-body">

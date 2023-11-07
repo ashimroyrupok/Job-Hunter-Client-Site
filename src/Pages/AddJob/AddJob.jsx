@@ -86,7 +86,7 @@ const AddJob = () => {
                                 <label className="label">
                                     <span className="label-text font-semibold text-white">Deadline</span>
                                 </label>
-                                <input required type="datetime-local" placeholder="Type here job deadline" className="input  w-[90%] input-bordered " name="deadline" />
+                                <input required type="date" placeholder="Type here job deadline" className="input  w-[90%] input-bordered " name="deadline" />
                             </div>
                         </div>
                     </div>
