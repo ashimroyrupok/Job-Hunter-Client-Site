@@ -43,10 +43,14 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser)
             setLoading(false)
 
- 
-            else {
-                axios.post('http://localhost:5000/logout' , loggedUser , {withCredentials:true})
+            if (currentUser) {
+                axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
+                    .then(res => {
+                        console.log("token response", res.data);
+                    })
             }
+            
+
         })
         return () => {
             unsubscribe()
