@@ -11,7 +11,7 @@ const Home = () => {
 
 
     return (
-        <div>
+        <div className="dark:bg-black ">
 
             <Helmet>
                 <meta charSet="utf-8" />

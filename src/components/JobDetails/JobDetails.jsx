@@ -3,15 +3,16 @@ import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 import swal from "sweetalert";
+import { Helmet } from "react-helmet";
 
 const JobDetails = () => {
     const { user } = useContext(AuthContext)
-    const data =useLoaderData()
-    const {id} = useParams()
+    const data = useLoaderData()
+    const { id } = useParams()
     // console.log(id);
     // console.log(data);
-    const [bidData , setBidData] = useState({})
-    const {  jobTitle } = bidData
+    const [bidData, setBidData] = useState({})
+    const { jobTitle } = bidData
     // console.log(jobTitle);
 
     const navigate = useNavigate()
@@ -46,11 +47,11 @@ const JobDetails = () => {
 
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         const filter = data.find(item => item._id === id)
         setBidData(filter);
 
-    },[])
+    }, [])
 
     console.log(bidData);
 
@@ -64,7 +65,12 @@ const JobDetails = () => {
 
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 ">
+        <div className="grid grid-cols-1 dark:bg-black dark:text-white  lg:grid-cols-2 ">
+
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>JB | JobDetails </title>
+            </Helmet>
 
             <div>
                 <div className="card-body">
@@ -72,7 +78,7 @@ const JobDetails = () => {
                     </h2>
                     <p> <span className="text-red-500 font-semibold">Price</span>: {bidData?.minimumPice}$ - {bidData?.maximumPrice} </p>
                     <p> <span className="font-semibold  ">Deadline</span> : {bidData?.deadline} </p>
-                    <p className="text-slate-400"> <span className="text-xs text-black font-semibold">Job Description</span> {bidData?.description} </p>
+                    <p className="text-slate-400"> <span className="text-xs text-black font-semibold dark:text-white ">Job Description</span> {bidData?.description} </p>
                     <div className="card-actions justify-end">
 
                         <button onClick={handleBidForm} className="btn bg-[#327289] text-white font-semibold">Place your bid form
@@ -83,7 +89,7 @@ const JobDetails = () => {
 
             </div>
 
-            <div id="BidForm"  className="max-w-[1240px] hidden mx-auto mt-10 bg-[#327289]  my-7 ">
+            <div id="BidForm" className="max-w-[1240px] hidden mx-auto mt-10 bg-[#327289]  my-7 ">
                 <h3 className="text-5xl text-center items-center font-bold text-white">Biding information</h3>
                 <div className="border-rose-100  border mt-6 p-4">
                     <form onSubmit={handleBid} >

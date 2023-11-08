@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
         <div className="my-10">
-            <footer className="footer p-8 bg-[#327289] text-white">
+            <footer className="footer p-8 bg-[#327289] dark:bg-black  text-white">
                 <nav>
                     <header className="footer-title">Office Address</header>
                     <p className="link link-hover">Town-Hall,Shapla Chattor,Rangpur</p>

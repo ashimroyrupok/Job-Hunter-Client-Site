@@ -4,12 +4,13 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import animation from "../assets/Animation - 1696665460395.gif"
+import { Helmet } from "react-helmet";
 
 const Login = () => {
     const navigate = useNavigate()
     const { login, googleSignin } = useContext(AuthContext)
     // console.log(login);
-    const handleLogin = async(e) => {
+    const handleLogin = async (e) => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
@@ -38,17 +39,21 @@ const Login = () => {
         googleSignin()
             .then(res => {
                 console.log(res);
-                toast.success('login successful', {id:toastLoading})
+                toast.success('login successful', { id: toastLoading })
                 navigate('/');
 
             })
             .catch(err => {
-                toast.error(err.message , {id: toastLoading})
+                toast.error(err.message, { id: toastLoading })
             })
     }
 
     return (
         <div className="bg-base-200 my-11 py-3 ">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>JB | Login </title>
+            </Helmet>
             <h3 className=" text-center font-bold mt-14 text-5xl">Login Now</h3>
             <div className="hero min-h-[60vh]  ">
                 <div className="hero-content flex-col lg:flex-row">

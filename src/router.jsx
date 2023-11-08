@@ -36,7 +36,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <JobDetails></JobDetails>
                 </PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/jobs')
+                loader: () => fetch('http://localhost:5000/jobs', {credentials:"include"})
 
             },
             {
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyBids></MyBids>
                 </PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/bidJobs')
+                loader: () => fetch('http://localhost:5000/bidJobs' , {credentials:"include"})
 
             },
             {

@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import swal from 'sweetalert';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 
 const AddJob = () => {
@@ -53,6 +54,10 @@ const AddJob = () => {
 
     return (
         <div className="max-w-[1240px] mx-auto mt-10 bg-[#327289]  my-7 ">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>JB | Add Job </title>
+            </Helmet>
             <h3 className="text-5xl text-center items-center font-bold text-white">Post Job</h3>
             <div className="border-rose-100  border mt-6 p-4">
                 <form onSubmit={handleForm} >

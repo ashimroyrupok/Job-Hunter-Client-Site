@@ -1,8 +1,8 @@
 
 const Review = () => {
     return (
-        <div className="my-10 bg-slate-100">
-            <h1 className="text-5xl font-bold text-black text-center my-10 "> Our company Review</h1>
+        <div className="my-10 dark:bg-black dark:text-white bg-slate-100">
+            <h1 className="text-5xl font-bold text-black dark:text-white text-center my-10 "> Our company Review</h1>
             <div className="grid grid-cols-1 md:grid-cols-3 p-5 gap-5 ">
                 <div className="flex flex-col pb-4 shadow-md justify-center items-center" >
                     <div className="avatar">

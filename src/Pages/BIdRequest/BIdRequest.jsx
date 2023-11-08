@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 
 import "react-step-progress-bar/styles.css";
 import { ProgressBar } from "react-step-progress-bar";
+import { Helmet } from "react-helmet";
 
 const BIdRequest = () => {
 
@@ -11,7 +12,7 @@ const BIdRequest = () => {
     const [reqData, setReqData] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bidJobs/${user?.email}`, {credentials:"include"} , {
+        fetch(`http://localhost:5000/bidJobs/${user?.email}`, { credentials: "include" }, {
             method: "GET",
         })
             .then(res => res.json())
@@ -69,15 +70,20 @@ const BIdRequest = () => {
     return (
         <div className="overflow-x-auto  my-10 max-w-6xl mx-auto text-white ">
 
-            <table className="table text-black">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>JB | Bid Request </title>
+            </Helmet>
+
+            <table className="table text-black dark:bg-black dark:text-white">
                 {/* head */}
                 <thead>
                     <tr className="w-full">
-                        <th className="text-black text-xl w-[20%]" >Job Title</th>
-                        <th className="text-black text-xl w-[20%]"> Client Email </th>
-                        <th className="text-black text-xl w-[20%]"> Bid Amount </th>
-                        <th className="text-black text-xl w-[20%]">Deadline</th>
-                        <th className="text-black text-xl w-[20%]"> Status </th>
+                        <th className="text-black dark:text-white text-xl w-[20%]" >Job Title</th>
+                        <th className="text-black dark:text-white text-xl w-[20%]"> Client Email </th>
+                        <th className="text-black dark:text-white text-xl w-[20%]"> Bid Amount </th>
+                        <th className="text-black dark:text-white text-xl w-[20%]">Deadline</th>
+                        <th className="text-black dark:text-white text-xl w-[20%]"> Status </th>
                         {/* <th className="text-black text-xl"> Status </th> */}
                     </tr>
                 </thead>
@@ -94,25 +100,25 @@ const BIdRequest = () => {
                                     item?.status === "In progress" || item?.status === "Rejected" ? <div>
                                         {
                                             item?.status === "In progress" ? <ProgressBar
-                                            percent={50}
-                                            filledBackground="linear-gradient(to right, #FF0000, #008000)"
-                                        /> : <span className="font-bold text-error"> Rejected</span>
+                                                percent={50}
+                                                filledBackground="linear-gradient(to right, #FF0000, #008000)"
+                                            /> : <span className="font-bold text-error"> Rejected</span>
                                         }
                                     </div> :
-                                    <div> 
-                                        {
-                                            item?.status === "complete" ? <ProgressBar
-                                            percent={100}
-                                            filledBackground="linear-gradient(to right, #FF0000, #008000)"
-                                        />  :
-                                            <div className="flex gap-4">
+                                        <div>
+                                            {
+                                                item?.status === "complete" ? <ProgressBar
+                                                    percent={100}
+                                                    filledBackground="linear-gradient(to right, #FF0000, #008000)"
+                                                /> :
+                                                    <div className="flex gap-4">
 
-                                            <button onClick={() => handleAccept(item?._id)} className="btn  btn-success">Accept</button>
-                                            <button onClick={() => handleDelete(item?._id)} className="btn mx-2 btn-error">Delete</button>
+                                                        <button onClick={() => handleAccept(item?._id)} className="btn  btn-success">Accept</button>
+                                                        <button onClick={() => handleDelete(item?._id)} className="btn mx-2 btn-error">Delete</button>
 
+                                                    </div>
+                                            }
                                         </div>
-                                        }
-                                    </div>
 
 
 

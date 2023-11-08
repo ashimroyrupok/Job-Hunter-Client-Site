@@ -2,9 +2,9 @@ import Marquee from "react-fast-marquee";
 
 const Partner = () => {
     return (
-        <div className="my-10 bg-slate-100 py-10">
+        <div className="my-10 dark:bg-black bg-slate-100 py-10">
 
-            <h2 className="text-white dark:text-black font-bold text-5xl text-center my-4">Our Partner</h2>
+            <h2 className=" dark:text-white font-bold text-5xl text-center my-4">Our Partner</h2>
 
 
             <Marquee>

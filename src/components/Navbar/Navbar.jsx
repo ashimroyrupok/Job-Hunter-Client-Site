@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { BsFillMoonFill, BsSun } from "react-icons/bs";
 
 const Navbar = () => {
     const { logout, user } = useContext(AuthContext)
@@ -17,10 +18,29 @@ const Navbar = () => {
     }
 
 
+    const [toggle, setToggle] = useState(
+        JSON.parse(localStorage.getItem("theme"))
+            ? JSON.parse(localStorage.getItem("theme"))
+            : false
+    );
+
+    const element = document.documentElement;
+
+    localStorage.setItem("theme", JSON.stringify(toggle));
+
+    useEffect(() => {
+        if (toggle) {
+            element.classList.add("dark");
+        } else {
+            element.classList.remove("dark");
+        }
+    }, [toggle]);
+
+
 
 
     return (
-        <div className="navbar bg-base-200 lg:px-16 mt-3 rounded-full shadow-blue-400">
+        <div className="navbar bg-base-200 dark:bg-black dark:text-white lg:px-16 mt-3 rounded-full shadow-blue-400">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -61,6 +81,11 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <div className=" mr-2 lg:mr-10">
+
+                    <h3 onClick={() => setToggle(!toggle)}> {toggle ? <BsSun className="font-bold text-2xl"></BsSun> : <BsFillMoonFill className="font-bold text-2xl"></BsFillMoonFill>} </h3>
+
+                </div>
                 {
                     user?.email ? <div className="dropdown  z-50 dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
