@@ -1,8 +1,9 @@
-# React + Vite
+**live link** :https://eclectic-custard-6c67bf.netlify.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+***About JOb Hunter  feature***
+- User can signin and sign out in this website.
+- User can see there bid request.
+- This website has dark light mood theme.
+- Job post owner can update and delete there post.
+- Only loged user can see details about job.
+- 
