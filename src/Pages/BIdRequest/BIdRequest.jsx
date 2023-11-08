@@ -11,7 +11,7 @@ const BIdRequest = () => {
     const [reqData, setReqData] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bidJobs/${user?.email}`, {
+        fetch(`http://localhost:5000/bidJobs/${user?.email}`, {credentials:"include"} , {
             method: "GET",
         })
             .then(res => res.json())
