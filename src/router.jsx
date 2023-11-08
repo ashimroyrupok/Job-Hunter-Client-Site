@@ -31,22 +31,22 @@ const router = createBrowserRouter([
                     <AddJob></AddJob>
                 </PrivateRoute>
             },
-            // {
-            //     path: "/jobs/:id",
-            //     element: <PrivateRoute>
-            //         <JobDetails></JobDetails>
-            //     </PrivateRoute>,
-            //     loader: () => fetch('http://localhost:5000/jobs')
-
-            // },
             {
-                path: "/myBids",
+                path: "/jobs/:id",
                 element: <PrivateRoute>
-                    <MyBids></MyBids>
+                    <JobDetails></JobDetails>
                 </PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/bidJobs')
+                loader: () => fetch('http://localhost:5000/jobs')
 
             },
+            // {
+            //     path: "/myBids",
+            //     element: <PrivateRoute>
+            //         <MyBids></MyBids>
+            //     </PrivateRoute>,
+            //     loader: () => fetch('http://localhost:5000/bidJobs')
+
+            // },
             {
                 path: "/myPostedJob",
                 element: <PrivateRoute>
