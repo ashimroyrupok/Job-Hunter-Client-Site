@@ -10,6 +10,7 @@ import JobDetails from "./components/JobDetails/JobDetails";
 import MyBids from "./Pages/MyBids/MyBids";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import MyPostedJob from "./Pages/MyPostedJob/MyPostedJob";
+import UpdateJob from "./components/UpdateJob/UpdateJob";
 
 const router = createBrowserRouter([
     {
@@ -31,20 +32,25 @@ const router = createBrowserRouter([
                 element: <AddJob></AddJob>
             },
             {
-                path:"/jobs/:id",
+                path: "/jobs/:id",
                 element: <JobDetails></JobDetails>,
-                loader: ()=> fetch('http://localhost:5000/jobs')
+                loader: () => fetch('http://localhost:5000/jobs')
 
             },
             {
                 path: "/myBids",
-                element : <MyBids></MyBids>,
+                element: <MyBids></MyBids>,
                 loader: () => fetch('http://localhost:5000/bidJobs')
-                
+
             },
             {
                 path: "/myPostedJob",
                 element: <MyPostedJob></MyPostedJob>,
+            },
+            {
+
+                path: "/updateJob/:id",
+                element: <UpdateJob></UpdateJob>,
                 loader: () => fetch('http://localhost:5000/jobs')
             }
 
