@@ -39,20 +39,20 @@ const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/jobs')
 
             },
-            // {
-            //     path: "/myBids",
-            //     element: <PrivateRoute>
-            //         <MyBids></MyBids>
-            //     </PrivateRoute>,
-            //     loader: () => fetch('http://localhost:5000/bidJobs')
-
-            // },
             {
-                path: "/myPostedJob",
+                path: "/myBids",
                 element: <PrivateRoute>
-                    <MyPostedJob></MyPostedJob>
+                    <MyBids></MyBids>
                 </PrivateRoute>,
+                loader: () => fetch('http://localhost:5000/bidJobs')
+
             },
+            // {
+            //     path: "/myPostedJob",
+            //     element: <PrivateRoute>
+            //         <MyPostedJob></MyPostedJob>
+            //     </PrivateRoute>,
+            // },
             {
 
                 path: "/updateJob/:id",
