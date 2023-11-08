@@ -11,6 +11,8 @@ import MyBids from "./Pages/MyBids/MyBids";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import MyPostedJob from "./Pages/MyPostedJob/MyPostedJob";
 import UpdateJob from "./components/UpdateJob/UpdateJob";
+import BIdRequest from "./Pages/BIdRequest/BIdRequest";
+import PrivateRoute from "./Route/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -25,33 +27,43 @@ const router = createBrowserRouter([
             },
             {
                 path: "/addjob",
-                element: <AddJob></AddJob>
+                element: <PrivateRoute>
+                    <AddJob></AddJob>
+                </PrivateRoute>
             },
-            {
-                path: "/postjob",
-                element: <AddJob></AddJob>
-            },
-            {
-                path: "/jobs/:id",
-                element: <JobDetails></JobDetails>,
-                loader: () => fetch('http://localhost:5000/jobs')
+            // {
+            //     path: "/jobs/:id",
+            //     element: <PrivateRoute>
+            //         <JobDetails></JobDetails>
+            //     </PrivateRoute>,
+            //     loader: () => fetch('http://localhost:5000/jobs')
 
-            },
+            // },
             {
                 path: "/myBids",
-                element: <MyBids></MyBids>,
+                element: <PrivateRoute>
+                    <MyBids></MyBids>
+                </PrivateRoute>,
                 loader: () => fetch('http://localhost:5000/bidJobs')
 
             },
             {
                 path: "/myPostedJob",
-                element: <MyPostedJob></MyPostedJob>,
+                element: <PrivateRoute>
+                    <MyPostedJob></MyPostedJob>
+                </PrivateRoute>,
             },
             {
 
                 path: "/updateJob/:id",
                 element: <UpdateJob></UpdateJob>,
                 loader: () => fetch('http://localhost:5000/jobs')
+            },
+            {
+                path: "/bidRequest",
+                element: <PrivateRoute>
+                    <BIdRequest></BIdRequest>
+                </PrivateRoute>
             }
 
 

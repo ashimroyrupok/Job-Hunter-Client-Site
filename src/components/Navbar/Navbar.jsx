@@ -31,12 +31,12 @@ const Navbar = () => {
                         <li>
                             <a>Job</a>
                             <ul className="p-2">
-                                <li className="my-1"><NavLink>Add Job</NavLink></li>
+                                <li className="my-1"><NavLink to='/addjob'>Add Job</NavLink></li>
                                 <li><NavLink to="/myPostedJob">My Posted Jobs</NavLink></li>
                             </ul>
                         </li>
                         <li className="my-1"><NavLink to='/myBids'>My Bids</NavLink></li>
-                        <li className="my-1"><NavLink >Bids Request</NavLink></li>
+                        <li className="my-1"><NavLink to='/bidRequest'>Bids Request</NavLink></li>
                         {/* <li><NavLink to='/postjob'>Post Job</NavLink></li> */}
                     </ul>
                 </div>
@@ -50,13 +50,13 @@ const Navbar = () => {
                         <details>
                             <summary>Job</summary>
                             <ul className="px-2 z-50 w-[150px]">
-                                <li className="my-1 text-sm w-full"><NavLink to='/postjob'>Add Job</NavLink></li>
+                                <li className="my-1 text-sm w-full"><NavLink to='/addjob'>Add Job</NavLink></li>
                                 <li><NavLink to="/myPostedJob">My Posted Jobs</NavLink></li>
                             </ul>
                         </details>
                     </li>
                     <li className="mx-2"><NavLink to='/myBids'>My Bids</NavLink></li>
-                    <li className="mx-2"><NavLink>Bids Request</NavLink></li>
+                    <li className="mx-2"><NavLink to="/bidRequest">Bids Request</NavLink></li>
                     {/* <li><NavLink to='/postjob'>Post Job</NavLink></li> */}
                 </ul>
             </div>

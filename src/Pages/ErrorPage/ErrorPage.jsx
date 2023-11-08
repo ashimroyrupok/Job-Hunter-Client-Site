@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 
+import image from "../../assets/aa.gif"
+
 const ErrorPage = () => {
     return (
         <div className="   mt-10">
 
             <div className="flex justify-center items-center">
-                <img src="https://i.ibb.co/JqLqWBn/404.webp" alt="" />
+                <img className="w-[30%]" src={image} alt="" />
             </div>
 
 

@@ -11,7 +11,8 @@ const JobDetails = () => {
     // console.log(id);
     // console.log(data);
     const [bidData , setBidData] = useState({})
-    // const { deadline, description, minimumPice, maximumPrice, jobTitle, BuyerEmail } = useLoaderData()
+    const {  jobTitle } = bidData
+    // console.log(jobTitle);
 
     const navigate = useNavigate()
 
