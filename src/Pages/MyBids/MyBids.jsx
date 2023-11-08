@@ -44,7 +44,7 @@ const MyBids = () => {
 
     // console.log(data);
     return (
-        <div className="my-10">
+        <div className="overflow-x-auto  h-[60vh] my-10 max-w-6xl mx-auto text-white ">
 
             <table className="table text-black">
                 {/* head */}

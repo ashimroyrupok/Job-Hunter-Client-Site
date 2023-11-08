@@ -67,29 +67,29 @@ const BIdRequest = () => {
     }
 
     return (
-        <div className="my-10">
+        <div className="overflow-x-auto  my-10 max-w-6xl mx-auto text-white ">
 
             <table className="table text-black">
                 {/* head */}
                 <thead>
-                    <tr>
-                        <th className="text-black text-xl" >Job Title</th>
-                        <th className="text-black text-xl"> Client Email </th>
-                        <th className="text-black text-xl"> Bid Amount </th>
-                        <th className="text-black text-xl">Deadline</th>
-                        <th className="text-black text-xl"> Status </th>
+                    <tr className="w-full">
+                        <th className="text-black text-xl w-[20%]" >Job Title</th>
+                        <th className="text-black text-xl w-[20%]"> Client Email </th>
+                        <th className="text-black text-xl w-[20%]"> Bid Amount </th>
+                        <th className="text-black text-xl w-[20%]">Deadline</th>
+                        <th className="text-black text-xl w-[20%]"> Status </th>
                         {/* <th className="text-black text-xl"> Status </th> */}
                     </tr>
                 </thead>
                 {
                     reqData?.map(item => <tbody key={item._id}>
                         {/* row 1 */}
-                        <tr>
-                            <td>  {item?.jobTitle} </td>
-                            <td>  {item?.clientEmail}  </td>
-                            <td>  {item?.bidAmount} $ </td>
-                            <td>  {item?.deadline} </td>
-                            <td>
+                        <tr className="w-full">
+                            <td className="w-[20%]">  {item?.jobTitle} </td>
+                            <td className="w-[20%]">  {item?.clientEmail}  </td>
+                            <td className="w-[20%]">  {item?.bidAmount} $ </td>
+                            <td className="w-[20%]">  {item?.deadline} </td>
+                            <td className="w-[20%]">
                                 {
                                     item?.status === "In progress" || item?.status === "Rejected" ? <div>
                                         {
@@ -122,9 +122,6 @@ const BIdRequest = () => {
 
 
                             </td>
-                            {/* <td>
-                                <Link><button className="btn btn-primary btn-xs">Pending</button></Link>
-                            </td> */}
                         </tr>
                     </tbody>)
                 }
