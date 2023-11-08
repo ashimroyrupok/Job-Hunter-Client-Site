@@ -11,7 +11,7 @@ const Categories = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/jobs')
+        fetch('https://job-hunter-server-site.vercel.app/jobs')
             .then(res => res.json())
             .then(data => setAllJob(data))
     }, [])

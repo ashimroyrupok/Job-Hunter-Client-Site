@@ -38,7 +38,7 @@ const UpdateJob = () => {
         const description = form.description.value;
         const products = { BuyerEmail, jobTitle, selectedCategory, minimumPice, deadline, maximumPrice, description }
 
-        fetch(`http://localhost:5000/jobs/${updatedJob._id}`,{
+        fetch(`https://job-hunter-server-site.vercel.app/jobs/${updatedJob._id}`,{
             method:"PUT",
             headers:{
                 'Content-Type':"application/json"

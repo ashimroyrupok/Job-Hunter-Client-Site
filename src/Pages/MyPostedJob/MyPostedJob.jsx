@@ -9,7 +9,7 @@ const MyPostedJob = () => {
     const [forUpdate, setForUpdate] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/jobs/${user?.email}`, {
+        fetch(`https://job-hunter-server-site.vercel.app/jobs/${user?.email}`, {
             method: "GET"
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const MyPostedJob = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/jobs/${id}`, {
+                fetch(`https://job-hunter-server-site.vercel.app/jobs/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

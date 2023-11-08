@@ -28,7 +28,7 @@ const JobDetails = () => {
         // setBidData(bidData)
         // console.log(bidData);
 
-        fetch('http://localhost:5000/bidJobs', {
+        fetch('https://job-hunter-server-site.vercel.app/bidJobs', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

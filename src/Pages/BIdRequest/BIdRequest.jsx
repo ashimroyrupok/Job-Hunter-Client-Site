@@ -12,7 +12,7 @@ const BIdRequest = () => {
     const [reqData, setReqData] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bidJobs/${user?.email}`, { credentials: "include" }, {
+        fetch(`https://job-hunter-server-site.vercel.app/bidJobs/${user?.email}`, { credentials: "include" }, {
             method: "GET",
         })
             .then(res => res.json())
@@ -24,7 +24,7 @@ const BIdRequest = () => {
 
     const handleAccept = id => {
         // console.log(id);
-        fetch(`http://localhost:5000/bidJobs/${id}`, {
+        fetch(`https://job-hunter-server-site.vercel.app/bidJobs/${id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json"
@@ -47,7 +47,7 @@ const BIdRequest = () => {
 
     const handleDelete = id => {
         console.log(id);
-        fetch(`http://localhost:5000/bidJobs/${id}`, {
+        fetch(`https://job-hunter-server-site.vercel.app/bidJobs/${id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json"

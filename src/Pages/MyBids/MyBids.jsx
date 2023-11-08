@@ -24,7 +24,7 @@ const MyBids = () => {
 
     const handleComplete = id => {
         // console.log(id);
-        fetch(`http://localhost:5000/bidJobs/${id}`, {
+        fetch(`https://job-hunter-server-site.vercel.app/bidJobs/${id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json"

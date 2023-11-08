@@ -28,7 +28,7 @@ const AddJob = () => {
         const products = { BuyerEmail, jobTitle, selectedCategory, minimumPice, deadline, maximumPrice, description }
         // console.log(products);
 
-        fetch("http://localhost:5000/jobs", {
+        fetch("https://job-hunter-server-site.vercel.app/jobs", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
