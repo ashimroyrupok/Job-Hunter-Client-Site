@@ -1,4 +1,4 @@
-**live link** :https://eclectic-custard-6c67bf.netlify.app
+**live link** : https://job-hunter-b5910.firebaseapp.com
 
 ***About JOb Hunter  feature***
 - User can signin and sign out in this website.
