@@ -36,7 +36,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <JobDetails></JobDetails>
                 </PrivateRoute>,
-                loader: () => fetch('https://job-hunter-server-site.vercel.app/jobs', {credentials:"include"})
+                loader: () => fetch('https://job-hunter-server-site.vercel.app/jobs', { credentials: "include" })
 
             },
             {
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyBids></MyBids>
                 </PrivateRoute>,
-                loader: () => fetch('https://job-hunter-server-site.vercel.app/bidJobs' , {credentials:"include"})
+                // loader: () => fetch('https://job-hunter-server-site.vercel.app/bidJobs', { credentials: "include" })
 
             },
             {

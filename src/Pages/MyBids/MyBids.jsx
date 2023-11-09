@@ -8,18 +8,44 @@ import { Helmet } from "react-helmet";
 
 const MyBids = () => {
     const [BidData, setBidData] = useState([])
-    const bids = useLoaderData()
+    // const bids = useLoaderData()
     const { user } = useContext(AuthContext)
+    const [sortField, setSortField] = useState(true)
+    const [bid, setBid] = useState([])
     // console.log(bids);
+    const url = `https://job-hunter-server-site.vercel.app/bidJobs?sort=${sortField ? "asc" : "dsc"}`
+
+
+
     useEffect(() => {
-        const filterUserData = bids.filter(item => item.clientEmail == user?.email)
+
+        if (user?.email) {
+            fetch(url, { credentials: "include" })
+                .then(res => res.json())
+                .then(data => setBid(data))
+        }
+
+
+        const filterUserData = bid.filter(item => item.clientEmail == user?.email)
         setBidData(filterUserData)
 
-    }, [bids, user?.email])
 
-    const handleJOb = id => {
-        console.log(id);
-    }
+    }, [bid,url,user?.email])
+
+    console.log(bid);
+
+
+
+
+    // const handleJOb = id => {
+    //     console.log(id);
+    // }
+
+    // useEffect(() => {
+    //     fetch('https://job-hunter-server-site.vercel.app/bidJobs', { credentials: "include" })
+    //         .then(res => res.json())
+    //         .then(data => setBidData(data))
+    // }, [])
 
 
     const handleComplete = id => {
@@ -42,6 +68,7 @@ const MyBids = () => {
                 }
             })
     }
+    // console.log(sortField);
 
     // console.log(data);
     return (
@@ -51,6 +78,10 @@ const MyBids = () => {
                 <meta charSet="utf-8" />
                 <title>JB | My Bids </title>
             </Helmet>
+
+            <div className=" w-full text-black justify-end flex">
+                <button onClick={() => setSortField(!sortField)} className="btn">Sort by Status</button>
+            </div>
 
             <table className="table text-black">
                 {/* head */}

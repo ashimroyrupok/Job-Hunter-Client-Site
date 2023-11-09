@@ -9,7 +9,7 @@ const MyPostedJob = () => {
     const [forUpdate, setForUpdate] = useState([])
 
     useEffect(() => {
-        fetch(`https://job-hunter-server-site.vercel.app/jobs/${user?.email}`, {
+        fetch(`https://job-hunter-server-site.vercel.app/jobs/${user?.email}`, {credentials:"include"}, {
             method: "GET"
         })
             .then(res => res.json())
