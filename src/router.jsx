@@ -13,6 +13,7 @@ import MyPostedJob from "./Pages/MyPostedJob/MyPostedJob";
 import UpdateJob from "./components/UpdateJob/UpdateJob";
 import BIdRequest from "./Pages/BIdRequest/BIdRequest";
 import PrivateRoute from "./Route/PrivateRoute";
+import Contact from "./Pages/Contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <AddJob></AddJob>
                 </PrivateRoute>
+            },
+            {
+                path: "/contact",
+                element: <Contact></Contact>
             },
             {
                 path: "/jobs/:id",

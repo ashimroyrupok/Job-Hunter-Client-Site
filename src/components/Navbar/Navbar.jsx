@@ -56,6 +56,7 @@ const Navbar = () => {
                             </ul>
                         </li>
                         <li className="my-1"><NavLink to='/myBids'>My Bids</NavLink></li>
+                        <li className="my-1"><NavLink to='/contact'>Contact</NavLink></li>
                         <li className="my-1"><NavLink to='/bidRequest'>Bids Request</NavLink></li>
                         {/* <li><NavLink to='/postjob'>Post Job</NavLink></li> */}
                     </ul>
@@ -76,6 +77,7 @@ const Navbar = () => {
                         </details>
                     </li>
                     <li className="mx-2"><NavLink to='/myBids'>My Bids</NavLink></li>
+                    <li className="my-1"><NavLink to='/contact'>Contact</NavLink></li>
                     <li className="mx-2"><NavLink to="/bidRequest">Bids Request</NavLink></li>
                     {/* <li><NavLink to='/postjob'>Post Job</NavLink></li> */}
                 </ul>
